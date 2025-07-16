@@ -23,9 +23,11 @@ mongoose
     `mongodb+srv://${dbuser}:${dbpass}@cluster0.y3mug7h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
   )
   .then(() => {
-    app.listen(8080, () => {
-      console.log("Server started");
-    });
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+  });
+
   });
 
 app.use("/api/users", userRouter);
