@@ -56,6 +56,7 @@ const login = async (req, res) => {
       const isMatch = await bcrypt.compare(password, existingUser.password);
       if (isMatch) {
         const userObj = {
+          id:existingUser._id,
           firstName: existingUser.firstName,
           email: existingUser.email,
           role: existingUser.role,
@@ -122,16 +123,6 @@ const updateProfile = async (req, res) => {
     res.status(400).json({ message: "Something went wrong" });
   }
 };
-
-// const showUsers = async (req, res) => {
-//   try {
-//     const result = await userModel.find();
-//     res.status(200).json(result);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json({ message: "Something went wrong" });
-//   }
-// };
 
 const showUsers = async (req, res) => {
   try {
