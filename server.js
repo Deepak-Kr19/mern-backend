@@ -20,7 +20,7 @@ const dbpass = encodeURIComponent(process.env.DBPASS);
 
 mongoose
   .connect(
-    `mongodb+srv://${dbuser}:${dbpass}@cluster0.y3mug7h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+    `mongodb+srv://${dbuser}:${dbpass}@cluster0.y3mug7h.mongodb.net/merncafe?retryWrites=true&w=majority&appName=Cluster0`
   )
   .then(() => {
     const PORT = process.env.PORT || 8080;
